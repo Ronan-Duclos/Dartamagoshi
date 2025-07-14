@@ -18,7 +18,6 @@ set(PROJECT_SOURCES
         mainwindow.cpp mainwindow.h mainwindow.ui
         srcs/MonsterTamer.hpp srcs/MonsterTamer.cpp
         srcs/Monster.hpp srcs/Monster.cpp
-        srcs/tools/MyOpenGlWidget.hpp srcs/tools/MyOpenGlWidget.cpp
         srcs/tools/MyLabel.hpp srcs/tools/MyLabel.cpp
         srcs/EquipementFabricator.hpp srcs/EquipementFabricator.cpp
         srcs/Equipement.hpp srcs/Equipement.cpp
