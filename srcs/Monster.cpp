@@ -107,7 +107,7 @@ void Monster::levelUp()
     update();
 }
 
-int Monster::getExploringTotalTime(int level)
+int Monster::getExploringTotalTime(const int level)
 {
     return 60 + 15 * (level - 1);
 }
@@ -122,12 +122,12 @@ int Monster::getInSpeedEfficiency()
     return m_stats[LEVEL] * 100 + ((m_stats[SPD] + m_stats[SPDBOOST]) / 1.5) * 200;
 }
 
-int Monster::getOutSpeedEfficiency(int total)
+int Monster::getOutSpeedEfficiency(const int total)
 {
     return total * (m_stats[LEVEL] + (m_stats[SPD] + m_stats[SPDBOOST]) / 1.5) / 100;
 }
 
-int Monster::getStrengthEfficiency(int divisor)
+int Monster::getStrengthEfficiency(const int divisor)
 {
     return ((m_stats[STR] + m_stats[STRBOOST]) / 1.5) / divisor;
 }
@@ -418,7 +418,7 @@ void Monster::rest()
     }
 }
 
-void Monster::feed(int food)
+void Monster::feed(const int food)
 {
     if (m_action == WAITING) {
         m_time = m_curTime = food;
@@ -431,7 +431,7 @@ void Monster::feed(int food)
     }
 }
 
-void Monster::train(int time)
+void Monster::train(const int time)
 {
     if (m_action == WAITING) {
         m_curTime = m_time = time;
@@ -446,7 +446,7 @@ void Monster::train(int time)
     }
 }
 
-void Monster::explore(int level)
+void Monster::explore(const int level)
 {
     if (m_action == WAITING) {
         int tmp = getExploringTotalTime(level);
@@ -463,7 +463,7 @@ void Monster::explore(int level)
     }
 }
 
-void Monster::donjon(int level)
+void Monster::donjon(const int level)
 {
     if (m_action == WAITING) {
         int tmp = getExploringTotalTime(level);
@@ -640,44 +640,44 @@ void Monster::unsetEquipement(const MyLabel *clicked)
     }
 }
 
-QString Monster::getName()
+QString Monster::getName() const
 {
     return m_name;
 }
 
-Monster::e_type Monster::getType()
+Monster::e_type Monster::getType() const
 {
     return m_type;
 }
 
-int Monster::getTypeInt()
+int Monster::getTypeInt() const
 {
     return m_type;
 }
 
-QString Monster::getTypeStr()
+QString Monster::getTypeStr() const
 {
     QList<QString> tmp = {"Fire", "Water", "Earth", "Air", "Dark", "Light", "Arcane", "Chaos"};
     return tmp[m_type];
 }
 
-QString Monster::getActionStr()
+QString Monster::getActionStr() const
 {
     QList<QString> tmp = {"Waiting", "Resting", "Eating", "Training", "Training(Break)", "Exploring", "Donjoning"};
     return tmp[m_action];
 }
 
-int Monster::getTime()
+int Monster::getTime() const
 {
     return m_time;
 }
 
-int Monster::getCurTime()
+int Monster::getCurTime() const
 {
     return m_time - m_curTime;
 }
 
-bool Monster::isAlive()
+bool Monster::isAlive() const
 {
     return m_alive;
 }
@@ -711,12 +711,12 @@ void Monster::update()
     emit equipementChanged();
 }
 
-int Monster::getStats(const e_stats stats)
+int Monster::getStats(const e_stats stats) const
 {
     return m_stats[stats];
 }
 
-Monster::e_action Monster::getAction()
+Monster::e_action Monster::getAction() const
 {
     return m_action;
 }

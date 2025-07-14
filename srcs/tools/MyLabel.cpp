@@ -41,12 +41,12 @@ void MyLabel::setPixmap(const QString imgName)
     QLabel::setPixmap(img);
 }
 
-void MyLabel::mouseDoubleClickEvent(const QMouseEvent *event)
+void MyLabel::mouseDoubleClickEvent(QMouseEvent *event)
 {
     emit doubleClicked(this);
 }
 
-void MyLabel::mouseReleaseEvent(const QMouseEvent *event)
+void MyLabel::mouseReleaseEvent(QMouseEvent *event)
 {
 
     emit clicked(this);

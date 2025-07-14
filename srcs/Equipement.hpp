@@ -37,7 +37,7 @@ public:
     e_type getType();
     QString getTypeStr();
     int getTypeInt();
-    int getStats(e_stats stats);
+    int getStats(const e_stats stats);
 
 private:
     e_rarity m_rarity;

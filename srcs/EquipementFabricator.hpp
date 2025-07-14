@@ -6,8 +6,8 @@ class EquipementFabricator
 {
 public:
     static EquipementFabricator &Instance();
-    std::shared_ptr<Equipement> getEquipement(Equipement::e_rarity rarity, Equipement::e_type type, int stats[4]);
-    std::shared_ptr<Equipement> getNewEquipement(int level);
+    std::shared_ptr<Equipement> getEquipement(const Equipement::e_rarity rarity, const Equipement::e_type type, const int stats[4]);
+    std::shared_ptr<Equipement> getNewEquipement(const int level);
 
 private:
     EquipementFabricator();

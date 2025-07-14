@@ -27,7 +27,7 @@ public:
     void setInventoryDisplay();
     void init();
     void createMonster();
-    void getMonster(QString name);
+    void getMonster(const QString name);
     void setMonsterDisplay();
     void connectMonsterSignals();
     void connectInventorySignals();
@@ -56,13 +56,13 @@ public slots:
     void saveMonster();
     void loadMonster();
     void resetMonster();
-    void setFoodNb(int value);
-    void setTrainTime(int value);
-    void setExploreLevel(int value);
-    void setDonjonLevel(int value);
+    void setFoodNb(const int value);
+    void setTrainTime(const int value);
+    void setExploreLevel(const int value);
+    void setDonjonLevel(const int value);
     void displayItems();
-    QString getItemStyleSheet(int backGround, int border);
-    QString getItemImg(int type);
+    QString getItemStyleSheet(const int backGround, const int border);
+    QString getItemImg(const int type);
     void displayItemStats(const MyLabel *place);
     void sellItem();
 
@@ -78,7 +78,7 @@ private:
     QList<MyLabel *>            m_inventory;
 
     void saveMonsterInventory(QSettings *settings);
-    void saveOneItem(QSettings *settings, QString group, int itemNb);
+    void saveOneItem(QSettings *settings, const QString group, int itemNb);
     void loadMonsterInventory(QSettings *settings);
-    void loadOneItem(QSettings *settings, QString group, int itemNb);
+    void loadOneItem(QSettings *settings, const QString group, int itemNb);
 };

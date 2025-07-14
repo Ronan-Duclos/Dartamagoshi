@@ -65,6 +65,7 @@ void MonsterTamer::setInventoryDisplay()
                   m_ui->item_06, m_ui->item_07, m_ui->item_08, m_ui->item_09, m_ui->item_10,
                   m_ui->item_11, m_ui->item_12, m_ui->item_13, m_ui->item_14, m_ui->item_15, m_ui->item_16, };
 
+
     for (int i = 0; i < m_inventory.size(); i++) {
         if (i < 4) {
             m_inventory[i]->setPos(i);
@@ -116,7 +117,7 @@ void MonsterTamer::createMonster()
     saveMonsterInfo();
 }
 
-void MonsterTamer::getMonster(QString name)
+void MonsterTamer::getMonster(const QString name)
 {
     int stats[14];
     QPixmap img(m_save.value("Img").toString());
@@ -284,7 +285,7 @@ void MonsterTamer::saveMonsterInventory(QSettings *settings)
     }
 }
 
-void MonsterTamer::saveOneItem(QSettings *settings, QString group, int itemNb)
+void MonsterTamer::saveOneItem(QSettings *settings, const QString group, int itemNb)
 {
     std::shared_ptr<Equipement> item;
     bool equiped = true;
@@ -316,7 +317,7 @@ void MonsterTamer::loadMonsterInventory(QSettings *settings)
         loadOneItem(settings, toSave[i], i);
 }
 
-void MonsterTamer::loadOneItem(QSettings *settings, QString group, int itemNb)
+void MonsterTamer::loadOneItem(QSettings *settings, const QString group, int itemNb)
 {
     std::shared_ptr<Equipement> tmp;
     bool equiped = true;
@@ -656,12 +657,12 @@ void MonsterTamer::resetMonster()
     }
 }
 
-void MonsterTamer::setFoodNb(int value)
+void MonsterTamer::setFoodNb(const int value)
 {
     m_ui->foodNb->setValue(value);
 }
 
-void MonsterTamer::setTrainTime(int value)
+void MonsterTamer::setTrainTime(const int value)
 {
     QTime time;
     int h = value / 3600;
@@ -673,12 +674,12 @@ void MonsterTamer::setTrainTime(int value)
         m_ui->trainingTime->setTime(time);
 }
 
-void MonsterTamer::setExploreLevel(int value)
+void MonsterTamer::setExploreLevel(const int value)
 {
     m_ui->exploreLvl->setValue(value);
 }
 
-void MonsterTamer::setDonjonLevel(int value)
+void MonsterTamer::setDonjonLevel(const int value)
 {
     m_ui->donjonLvl->setValue(value);
 }
@@ -721,7 +722,7 @@ void MonsterTamer::displayItems()
     saveMonsterInventory(&m_save);
 }
 
-QString MonsterTamer::getItemStyleSheet(int backGround, int border)
+QString MonsterTamer::getItemStyleSheet(const int backGround, const int border)
 {
     QString ssBackGround[5] = {"background-color: rgb(255, 255, 255);",
                                "background-color: rgb(160, 160, 160);",
@@ -734,7 +735,7 @@ QString MonsterTamer::getItemStyleSheet(int backGround, int border)
     return QString(ssBackGround[backGround] + ssBorder[border] + " border-radius: 5px;");
 }
 
-QString MonsterTamer::getItemImg(int type)
+QString MonsterTamer::getItemImg(const int type)
 {
     QString img[4] = {"img/Stuff/Claws.png",
                       "img/Stuff/Fangs.png",
@@ -747,6 +748,7 @@ void MonsterTamer::displayItemStats(const MyLabel *place)
 {
     std::shared_ptr<Equipement> item = m_monster->getEquipement(place->isEquiped(), place->getPos());
 
+    qDebug() << "Clicked";
     if (item) {
         m_ui->labelNameItem->setText(item->getRarityStr() + " " + item->getTypeStr());
         m_ui->itemStr->display(item->getStats(Equipement::STR));

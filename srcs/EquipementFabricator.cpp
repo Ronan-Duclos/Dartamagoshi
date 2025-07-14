@@ -8,13 +8,13 @@ EquipementFabricator &EquipementFabricator::Instance()
     return instance;
 }
 
-std::shared_ptr<Equipement> EquipementFabricator::getEquipement(Equipement::e_rarity rarity, Equipement::e_type type, int stats[])
+std::shared_ptr<Equipement> EquipementFabricator::getEquipement(const Equipement::e_rarity rarity, const Equipement::e_type type, const int stats[])
 {
     std::shared_ptr<Equipement> ret(new Equipement(rarity, type, stats));
     return ret;
 }
 
-std::shared_ptr<Equipement> EquipementFabricator::getNewEquipement(int level)
+std::shared_ptr<Equipement> EquipementFabricator::getNewEquipement(const int level)
 {
     std::vector<int> tab = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
                             1, 1, 2, 1, 1, 1, 1, 1, 1, 1,

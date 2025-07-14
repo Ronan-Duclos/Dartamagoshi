@@ -60,24 +60,24 @@ public:
     Monster(const QString name, const e_type type, const int stats[13]);
     ~Monster();
 
-    QString getName();
-    e_type getType();
-    int getTypeInt();
-    QString getTypeStr();
-    int getStats(const e_stats stats);
-    e_action getAction();
-    QString getActionStr();
-    int getTime();
-    int getCurTime();
-    bool isAlive();
+    QString getName() const;
+    e_type getType() const;
+    int getTypeInt() const;
+    QString getTypeStr() const;
+    int getStats(const e_stats stats) const;
+    e_action getAction() const;
+    QString getActionStr() const;
+    int getTime() const;
+    int getCurTime() const;
+    bool isAlive() const;
     void clearEquipement();
     std::shared_ptr<Equipement> getEquipement(const bool equiped, const int pos) const;
 
     void update();
-    void feed(int food);        // Action
-    void train(int time);       // Action
-    void explore(int level);    // Action
-    void donjon(int level);        // Action
+    void feed(const int food);        // Action
+    void train(const int time);       // Action
+    void explore(const int level);    // Action
+    void donjon(const int level);        // Action
     void addEquipement(const std::shared_ptr<Equipement> item, const bool equiped, const int pos);
     void setItemToSell(const int itemNb);
     void sellItem();
@@ -137,11 +137,11 @@ private:
     void setMonster();
     void setInventory();
     void levelUp();
-    int getExploringTotalTime(int level);
+    int getExploringTotalTime(const int level);
     int getStarvingTolerance();
     int getInSpeedEfficiency();
-    int getOutSpeedEfficiency(int total);
-    int getStrengthEfficiency(int divisor);
+    int getOutSpeedEfficiency(const int total);
+    int getStrengthEfficiency(const int divisor);
     void setStarvingTime();
     void setEatingTime();
     void setTrainingTime();

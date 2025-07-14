@@ -19,12 +19,12 @@ public slots:
     void setPixmap(const QString imgName);
 
 signals:
-    void doubleClicked(const MyLabel *clicked);
-    void clicked(const MyLabel *clicked);
+    void doubleClicked(MyLabel *clicked);
+    void clicked(MyLabel *clicked);
 
 protected:
-    void mouseDoubleClickEvent(const QMouseEvent *event);
-    void mouseReleaseEvent(const QMouseEvent *event);
+    void mouseDoubleClickEvent(QMouseEvent *event);
+    void mouseReleaseEvent(QMouseEvent *event);
 
 private:
     QString m_imgName;

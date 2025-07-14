@@ -54,7 +54,7 @@ int Equipement::getTypeInt()
     return m_type;
 }
 
-int Equipement::getStats(e_stats stats)
+int Equipement::getStats(const e_stats stats)
 {
     return m_stats[stats];
 }
