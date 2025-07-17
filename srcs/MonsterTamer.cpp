@@ -475,7 +475,6 @@ void MonsterTamer::monsterActionChanged()
         m_ui->donjonLvlDial->setEnabled(true);
         m_ui->menuBar->setEnabled(true);
         m_ui->tabEquipements->setEnabled(true);
-        m_ui->centralwidget->setStyleSheet("background-color: rgb(240, 240, 240);");
         if (m_monster->getStats(Monster::TOPLACE) > 0) {
             m_ui->addStr->setEnabled(true);
             m_ui->addEnd->setEnabled(true);
@@ -501,7 +500,6 @@ void MonsterTamer::monsterActionChanged()
         m_ui->addEnd->setEnabled(false);
         m_ui->addSpd->setEnabled(false);
         m_ui->tabEquipements->setEnabled(false);
-        m_ui->centralwidget->setStyleSheet("background-color: rgb(180, 180, 180);");
     }
 }
 
@@ -525,7 +523,6 @@ void MonsterTamer::monsterActionTimeChanged()
 void MonsterTamer::monsterAliveChanged()
 {
     if (!m_monster->isAlive()) {
-        m_ui->centralwidget->setStyleSheet("background-color: rgba(126, 20, 20, 126);");
         m_ui->monsterAction->setText("Action: DEAD!");
         m_save.clear();
         m_ui->restButton->setEnabled(false);
@@ -639,7 +636,6 @@ void MonsterTamer::loadMonster()
         init();
         m_monster->update();
         m_ui->progressActionBar->setValue(0);
-        m_ui->centralwidget->setStyleSheet("background-color: rgb(240, 240, 240);");
         m_monster->clearEquipement();
         loadMonsterInventory(&settings);
     }
@@ -653,7 +649,6 @@ void MonsterTamer::resetMonster()
         m_save.clear();
         init();
         m_monster->update();
-        m_ui->centralwidget->setStyleSheet("background-color: rgb(240, 240, 240);");
     }
 }
 
